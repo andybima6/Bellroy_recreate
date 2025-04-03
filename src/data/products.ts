@@ -39,5 +39,25 @@ export const products: Product[] = [
     category: "travel",
     tag: "Value Set",
     colors: ['#000000']
-  }
+  },
+  {
+    id: 4,
+    name: "Tech Kit",
+    price: 59,
+    description: "Charger, mouse, powerbank, dongles, cables, earbuds",
+    image: "../../public/image/tech_kit.png",
+    category: "tech",
+    colors: ['#000000', '#808080', '#4A4A4A', '#1B4B72', '#B8C2CC', '#8B4513', '#DEB887']
+  },
+  {
+    id: 5,
+    name: "Pack Well Travel Set",
+    price: 79,
+    comparePrice: 98,
+    description: "Tech Kit + Lite Pouch Duo",
+    image: "../../public/image/pack_well.png",
+    category: "travel",
+    tag: "Value Set",
+    colors: ['#000000']
+  },
 ];

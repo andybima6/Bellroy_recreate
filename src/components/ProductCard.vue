@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import type { Product } from '../data/products';
 
-defineProps<{
-  product: Product;
-}>();
+defineProps<{ product: Product }>();
 </script>
 
 <template>
@@ -40,3 +38,7 @@ defineProps<{
     </div>
   </div>
 </template>
+
+<script lang="ts">
+export default { name: "ProductCard" };
+</script>
