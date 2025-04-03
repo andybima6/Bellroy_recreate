@@ -1,74 +1,129 @@
 <script setup lang="ts">
+
+type SubmenuItem = {
+  name?: string;
+  href: string;
+  icon?: string;
+};
+
+type GroupedSubmenuItem = {
+  title: string;
+  items: SubmenuItem[];
+};
+
+type IconSubmenuItem = {
+  name?: string; // Tambahkan `name` agar bisa digunakan di menu
+  icon: string;
+  href?: string;
+};
+
 interface MenuItem {
   name: string;
-  submenu1?: { name: string }[];
-  submenu?: { name: string; icon?: string }[];
+  submenu?: (IconSubmenuItem | GroupedSubmenuItem)[];
 }
+
 const menuItems: MenuItem[] = [
   {
     name: "Featured",
-    submenu1: [{ name: "Backpacks" }],
+    submenu: [
+      {
+        title: "Popular",
+        items: [
+          { name: "Best Seller", href: "/activity" },
+          { name: "New Releases", href: "/collection" },
+          { name: "Student & Graduates", href: "/collection" },
+          { name: "The Outlet", href: "/collection" },
+          { name: "Value Sets", href: "/collection" },
+        ],
+      },
+      {
+        title: "Bestsellers",
+        items: [
+          { name: "Work", href: "/work" },
+          { name: "Travel", href: "/new-releases" },
+          { name: "Outdoor", href: "/new-releases" },
+          { name: "Campus", href: "/new-releases" },
+        ],
+      },
+      {
+        title: "By Collection",
+        items: [
+          { href: "/work", icon: "/image/backpack.png" },
+          { href: "/new-releases", icon: "/image/backpack.png" },
+          { href: "/new-releases", icon: "/image/backpack.png" },
+          { href: "/new-releases", icon: "/image/backpack.png" },
+        ],
+      },
+    ],
   },
   {
     name: "Bags",
     submenu: [
-      { name: "Backpacks", icon: "../../public/image/backpack.png" },
-      { name: "Sling & Crossbody Bags", icon: "../../public/image/sling.png" },
-      { name: "Tote & Shoulders Bags  ", icon: "../../public/image/tote.png" },
-      { name: "Market & Cooler Bags ", icon: "../../public/image/market.png" },
-      { name: "Work Bags", icon: "../../public/image/work.png" },
-      { name: "Duffel Bags", icon: "../../public/image/duffel.png" },
-      { name: "All Wallets", icon: "../../public/image/all_wallets.png" },
+      { name: "Backpacks", href: "/backpacks", icon: "/image/backpack.png" },
+      { name: "Sling & Crossbody Bags", href: "/sling", icon: "/image/sling.png" },
+      { name: "Tote & Shoulder Bags", href: "/tote", icon: "/image/tote.png" },
+      { name: "Market & Cooler Bags", href: "/market", icon: "/image/market.png" },
+      { name: "Work Bags", href: "/work-bags", icon: "/image/work.png" },
+      { name: "Duffel Bags", href: "/duffel", icon: "/image/duffel.png" },
+      { name: "All Wallets", href: "/wallets", icon: "/image/all_wallets.png" },
     ],
   },
   {
     name: "Wallets",
     submenu: [
-      { name: "Billfolds", icon: "../../public/image/billfolds.png" },
-      { name: "Card Holders", icon: "../../public/image/card_holder.png" },
-      { name: "Zip Wallets", icon: "../../public/image/zip_wallets.png" },
-      { name: "Passport Holders", icon: "../../public/image/passport.png" },
-      { name: "RFID Protected", icon: "../../public/image/rfid.png" },
-      { name: "All Wallets", icon: "../../public/image/all_wallets.png" },
+      { name: "Billfolds", href: "/billfolds", icon: "/image/billfolds.png" },
+      { name: "Card Holders", href: "/card-holders", icon: "/image/card_holder.png" },
+      { name: "Zip Wallets", href: "/zip-wallets", icon: "/image/zip_wallets.png" },
+      { name: "Passport Holders", href: "/passport", icon: "/image/passport.png" },
+      { name: "RFID Protected", href: "/rfid", icon: "/image/rfid.png" },
+      { name: "All Wallets", href: "/wallets", icon: "/image/all_wallets.png" },
     ],
   },
   {
     name: "Accessories",
     submenu: [
-      { name: "Packing Cubes", icon: "../../public/image/packing.png" },
-      { name: "Key Holders", icon: "../../public/image/key_holder.png" },
-      { name: "Pouches", icon: "../../public/image/pouches.png" },
-      { name: "Folios ", icon: "../../public/image/follios.png" },
-      { name: "All Wallets", icon: "../../public/image/all_wallets.png" },
+      { name: "Packing Cubes", href: "/packing", icon: "/image/packing.png" },
+      { name: "Key Holders", href: "/key-holders", icon: "/image/key_holder.png" },
+      { name: "Pouches", href: "/pouches", icon: "/image/pouches.png" },
+      { name: "Folios", href: "/folios", icon: "/image/follios.png" },
+      { name: "All Wallets", href: "/wallets", icon: "/image/all_wallets.png" },
     ],
   },
   {
     name: "Tech",
     submenu: [
-      { name: "IPhone Cases", icon: "../../public/image/iphone.png" },
-      { name: "Pixel Cases", icon: "../../public/image/pixel.png" },
-      { name: "Samsung Cases", icon: "../../public/image/samsung.png" },
-      { name: "Earbud Cases", icon: "../../public/image/earbud.png" },
-      { name: "AirTag Cases", icon: "../../public/image/airTag.png" },
-      { name: "Watch Bands", icon: "../../public/image/watch.png" },
-      { name: "Laptop & Tablet Sleeves", icon: "../../public/image/laptop.png" },
-      { name: "Tech Organizers", icon: "../../public/image/tech.png" },
-      { name: "All Wallets", icon: "../../public/image/all_wallets.png" },
+      { name: "iPhone Cases", href: "/iphone", icon: "/image/iphone.png" },
+      { name: "Pixel Cases", href: "/pixel", icon: "/image/pixel.png" },
+      { name: "Samsung Cases", href: "/samsung", icon: "/image/samsung.png" },
+      { name: "Earbud Cases", href: "/earbud", icon: "/image/earbud.png" },
+      { name: "AirTag Cases", href: "/airtag", icon: "/image/airtag.png" },
+      { name: "Watch Bands", href: "/watch", icon: "/image/watch.png" },
+      { name: "Laptop & Tablet Sleeves", href: "/laptop", icon: "/image/laptop.png" },
+      { name: "Tech Organizers", href: "/tech", icon: "/image/tech.png" },
+      { name: "All Wallets", href: "/wallets", icon: "/image/all_wallets.png" },
     ],
   },
   {
     name: "Travel",
     submenu: [
-      { name: "Travel Bags", icon: "../../public/image/travel_bags.png" },
-      { name: "Packing cubes", icon: "../../public/image/cubes.png" },
-      { name: "RFID & Travel Wallets", icon: "../../public/image/rfid_travel.png" },
-      { name: "Toiletry Bags", icon: "../../public/image/toiletry.png" },
-      { name: "All Wallets", icon: "../../public/image/all_wallets.png" },
+      { name: "Travel Bags", href: "/travel-bags", icon: "/image/travel_bags.png" },
+      { name: "Packing Cubes", href: "/cubes", icon: "/image/cubes.png" },
+      { name: "RFID & Travel Wallets", href: "/rfid-travel", icon: "/image/rfid_travel.png" },
+      { name: "Toiletry Bags", href: "/toiletry", icon: "/image/toiletry.png" },
+      { name: "All Wallets", href: "/wallets", icon: "/image/all_wallets.png" },
     ],
   },
-  { name: "About Us" },
+  {
+    name: "About Us",
+    submenu: [
+      { name: "Company Info", href: "/about", icon: "/image/travel_bags.png" },
+      { name: "Careers", href: "/careers", icon: "/image/travel_bags.png" },
+      { name: "Contact Us", href: "/contact", icon: "/image/travel_bags.png" },
+    ],
+  },
 ];
 </script>
+
 <template>
   <nav class="bg-white border-b border-gray-200">
     <!-- Free shipping banner -->
@@ -92,16 +147,54 @@ const menuItems: MenuItem[] = [
             <div v-if="item.submenu" class="absolute top-full left-0 w-max bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 -translate-y-1 group-hover:translate-y-0 z-50">
               <div class="border-t border-gray-200 w-full translate-y-6"></div>
               <div class="container mx-auto px-6 py-8">
-                <div class="grid grid-cols-6 gap-8">
-                  
-                  <a v-for="subitem in item.submenu" :key="subitem.name" href="#" class="text-center group/item">
-                    <div class="rounded-lg mt-12 mb-12 flex items-center justify-center overflow-hidden">
-                      <img :src="subitem.icon" :alt="subitem.name" class="w-20 h-20 object-contain transition-transform duration-300 group-hover/item:scale-110" />
-                    </div>
-                    
-                    <span class="text-sm text-gray-900 group-hover/item:text-bellroy-brown transition-colors">
-                      {{ subitem.name }}
-                    </span>
+                <!-- Template khusus untuk Featured menu -->
+                <div v-if="item.name === 'Featured'" class="grid grid-cols-4 gap-8">
+                  <div v-for="(group, index) in item.submenu" :key="index" class="featured-group">
+                    <!-- Cek apakah ini adalah GroupedSubmenuItem -->
+                    <template v-if="'title' in group">
+                      <h3 class="text-sm font-bold text-gray-900 mb-4">{{ group.title }}</h3>
+
+                      <!-- Cek apakah semua items hanya memiliki icon tanpa teks -->
+                      <ul
+                        :class="{
+                          'flex flex-row gap-4 items-center': group.items.every((item) => item.icon && !item.name),
+                          'space-y-2': !group.items.every((item) => item.icon && !item.name),
+                        }"
+                      >
+                        <li
+                          v-for="(subItem, subIndex) in group.items"
+                          :key="subIndex"
+                          :class="{
+                            'flex items-center': subItem.name,
+                          }"
+                        >
+                          <img v-if="subItem.icon" :src="subItem.icon" :alt="subItem.name" class="w-16 h-16" />
+                          <a v-if="subItem.name" :href="subItem.href" class="text-sm text-gray-600 hover:text-bellroy-brown">
+                            {{ subItem.name }}
+                          </a>
+                        </li>
+                      </ul>
+                    </template>
+
+                    <!-- Jika hanya ikon tanpa daftar -->
+                    <template v-else-if="group.icon">
+                      <img :src="group.icon" alt="Featured Icon" class="w-16 h-16 mx-auto" />
+                    </template>
+                  </div>
+                </div>
+
+                <!-- Template default untuk menu lainnya -->
+                <div v-else class="grid grid-cols-6 gap-8">
+                  <a v-for="subitem in item.submenu" :key="'name' in subitem ? subitem.name : 'title' in subitem ? subitem.title : ''" href="#" class="text-center group/item">
+                    <!-- Type guard untuk memastikan ini adalah IconSubmenuItem -->
+                    <template v-if="'name' in subitem">
+                      <div class="rounded-lg mt-12 mb-12 flex items-center justify-center overflow-hidden">
+                        <img :src="subitem.icon" :alt="subitem.name" class="w-20 h-20 object-contain transition-transform duration-300 group-hover/item:scale-110" />
+                      </div>
+                      <span class="text-sm text-gray-900 group-hover/item:text-bellroy-brown transition-colors">
+                        {{ subitem.name }}
+                      </span>
+                    </template>
                   </a>
                 </div>
               </div>
@@ -111,8 +204,8 @@ const menuItems: MenuItem[] = [
 
         <!-- Right Menu -->
         <div class="flex items-center space-x-6">
-          <a href="#" class="text-sm text-gray-600 hover:text-bellroy-brown">Need help?</a>
-          <a href="#" class="text-sm text-gray-600 hover:text-bellroy-brown">Find In-Store</a>
+          <a href="#" class="text-sm text-gray-600 hover:text-bellroy-brown hover:text-orange-700">Need help?</a>
+          <a href="#" class="text-sm text-gray-600 hover:text-bellroy-brown hover:text-orange-700">Find In-Store</a>
           <button class="text-gray-700 hover:text-bellroy-brown">
             <span class="material-icons">mail_outline</span>
           </button>
@@ -127,6 +220,7 @@ const menuItems: MenuItem[] = [
     </div>
   </nav>
 </template>
+
 <style scoped>
 .group:hover .group-hover\:opacity-100 {
   pointer-events: auto;
