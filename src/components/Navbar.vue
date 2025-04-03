@@ -314,3 +314,7 @@ const toggleSubmenu = (index: number) => {
   background-color: white;
 }
 </style>
+
+<script lang="ts">
+export default { name: "Navbar" };
+</script>
