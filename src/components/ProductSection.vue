@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Product } from '../data/products';
-import ProductCard from './ProductCard.vue';
+import ProductCard from '../components/ProductCard.vue';
 
 defineProps<{
   title: string;

@@ -20,28 +20,28 @@ import { products } from './data/products';
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           <div>
-            <img src="https://bellroy.com/assets/icons/melbourne-6a6a8b03b95e0f6540aa9b8a1bc2eeec.jpg" alt="Melbourne" class="w-24 h-24 mx-auto rounded-full mb-4">
+            <img src="../public/image/melbourne.jpg" alt="Melbourne" class="w-24 h-24 mx-auto rounded-full mb-4">
             <h3 class="font-medium mb-2">Designed in Melbourne</h3>
             <p class="text-sm text-gray-600">We are a design-obsessed brand based in Australia, but our products are carried right across the globe.</p>
-            <a href="#" class="text-orange-600 text-sm mt-4 inline-block hover:text-orange-700">READ ABOUT US →</a>
+            <a href="#" class="text-orange-600 text-sm mt-12 inline-block hover:text-orange-700">READ ABOUT US →</a>
           </div>
           <div>
-            <img src="https://bellroy.com/assets/icons/slim-6a6a8b03b95e0f6540aa9b8a1bc2eeec.jpg" alt="Slim" class="w-24 h-24 mx-auto rounded-full mb-4">
+            <img src="../public/image/slim.jpeg" alt="Slim" class="w-24 h-24 mx-auto rounded-full mb-4">
             <h3 class="font-medium mb-2">Engineered slim</h3>
             <p class="text-sm text-gray-600">We re-engineered the everyday wallet back in 2010, removing all excess and slimming millions of pockets in the process.</p>
-            <a href="#" class="text-orange-600 text-sm mt-4 inline-block hover:text-orange-700">SLIM YOUR WALLET →</a>
+            <a href="#" class="text-orange-600 text-sm mt-6 inline-block hover:text-orange-700">SLIM YOUR WALLET →</a>
           </div>
           <div>
-            <img src="https://bellroy.com/assets/icons/bcorp-6a6a8b03b95e0f6540aa9b8a1bc2eeec.jpg" alt="B Corp" class="w-24 h-24 mx-auto rounded-full mb-4">
+            <img src="../public/image/avatar.jpeg" alt="B Corp" class="w-24 h-24 mx-auto rounded-full mb-4">
             <h3 class="font-medium mb-2">Certified B Corp</h3>
             <p class="text-sm text-gray-600">We're recognized for using business as a force for good. Which includes our development of recycled materials.</p>
-            <a href="#" class="text-orange-600 text-sm mt-4 inline-block hover:text-orange-700">LEARN ABOUT OUR MATERIALS →</a>
+            <a href="#" class="text-orange-600 text-sm mt-11 inline-block hover:text-orange-700">LEARN ABOUT OUR MATERIALS →</a>
           </div>
           <div>
-            <img src="https://bellroy.com/assets/icons/warranty-6a6a8b03b95e0f6540aa9b8a1bc2eeec.jpg" alt="Warranty" class="w-24 h-24 mx-auto rounded-full mb-4">
+            <img src="../public/image/avatar.jpeg" alt="Warranty" class="w-24 h-24 mx-auto rounded-full mb-4">
             <h3 class="font-medium mb-2">Making products that last</h3>
             <p class="text-sm text-gray-600">We're committed to making products that can be used and loved for as long as possible.</p>
-            <a href="#" class="text-orange-600 text-sm mt-4 inline-block hover:text-orange-700">ON THE JOURNAL →</a>
+            <a href="#" class="text-orange-600 text-sm mt-11 inline-block hover:text-orange-700">ON THE JOURNAL →</a>
           </div>
         </div>
       </div>
@@ -71,7 +71,7 @@ import { products } from './data/products';
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4 max-w-7xl">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <h3 class="font-medium mb-4">HELP</h3>
@@ -116,3 +116,14 @@ import { products } from './data/products';
     </footer>
   </div>
 </template>
+
+<style>
+body {
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+</style>

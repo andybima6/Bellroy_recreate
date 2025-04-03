@@ -2,7 +2,7 @@
   <div class="relative h-screen">
     <div class="absolute inset-0">
       <img 
-        src="https://bellroy.com/assets/homepage/transit_workpack_homepage_hero-6a6a8b03b95e0f6540aa9b8a1bc2eeec.jpg" 
+        src="../../public/image/hero.png" 
         alt="Hero" 
         class="w-full h-full object-cover"
       >
